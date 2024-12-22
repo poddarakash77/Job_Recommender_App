@@ -1,9 +1,9 @@
 name: Deploy to Cloud Run
 
 env:
-  SERVICE_NAME: NLU RESUME
+  SERVICE_NAME: streamlit-app
   PROJECT_ID: nlu-resume
-  DOCKER_IMAGE_URL:  gcr.io/nlu-resume/streamlit-app .
+  DOCKER_IMAGE_URL:  us-docker.pkg.dev/nlu-resume/your-repository/streamlit-app .
 on:
   push:
     branches:
@@ -31,7 +31,7 @@ jobs:
 
       - name: Configure Docker
         run: |
-          gcloud auth configure-docker us-central1-docker.pkg.dev
+          gcloud auth configure-docker us-east1-docker.pkg.dev
 
       - name: Build and Push Docker Image
         run: |
