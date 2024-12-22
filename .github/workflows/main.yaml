@@ -3,7 +3,7 @@ name: Deploy to Cloud Run
 env:
   SERVICE_NAME: NLU RESUME
   PROJECT_ID: nlu-resume
-  DOCKER_IMAGE_URL:  us-docker.pkg.dev/nlu-resume/gcr.io/streamlit-app
+  DOCKER_IMAGE_URL:  gcr.io/nlu-resume/streamlit-app@sha256:ed47993f246c8fa3058e6e13d8919a660881116f6427b0feef646217699fef26
 on:
   push:
     branches:
