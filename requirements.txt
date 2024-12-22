@@ -14,5 +14,3 @@ ftfy
 PyPDF2
 pyresparser
 streamlit
-en_core_web_sm
-spacy
