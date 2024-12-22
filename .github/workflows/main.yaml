@@ -38,7 +38,7 @@ jobs:
         run: |
           # docker build -t ${{ env.DOCKER_IMAGE_URL }}:latest -f Dockerfile .
           # docker push ${{ env.DOCKER_IMAGE_URL }}:latest
-          DOCKER_TAG="$${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME}}/${{ env.SERVICE_NAME }}:${{ github.sha }}" ./
+          DOCKER_TAG="$${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME}}/${{ env.SERVICE_NAME }}:${{ github.sha }}" 
           docker build --tag "${DOCKER_TAG}" .
           docker push "${DOCKER_TAG}"
 
