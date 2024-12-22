@@ -13,7 +13,7 @@ COPY . .
 # Upgrade pip and install dependencies
 RUN python -m pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
-    python -m nltk.downloader stopwords && 
+    python -m nltk.downloader stopwords 
 
 RUN python -m spacy download en_core_web_sm
 
