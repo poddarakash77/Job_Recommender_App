@@ -3,6 +3,7 @@ name: Deploy to Cloud Run
 env:
   SERVICE_NAME: streamlit-app
   PROJECT_ID: nlu-resume
+  GAR_NAME: gcr.io
   DOCKER_IMAGE_URL:  us-docker.pkg.dev/nlu-resume/gcr.io/streamlit-app 
 on:
   push:
@@ -35,8 +36,11 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t ${{ env.DOCKER_IMAGE_URL }}:latest -f Dockerfile .
-          docker push ${{ env.DOCKER_IMAGE_URL }}:latest
+          # docker build -t ${{ env.DOCKER_IMAGE_URL }}:latest -f Dockerfile .
+          # docker push ${{ env.DOCKER_IMAGE_URL }}:latest
+          DOCKER_TAG="$${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME}}/${{ env.SERVICE_NAME }}:${{ github.sha }}" ./
+          docker build --tag "${DOCKER_TAG}" .
+          docker push "${DOCKER_TAG}"
 
       - name: Deploy to Cloud Run
         run: |
