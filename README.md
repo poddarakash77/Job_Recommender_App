@@ -1,4 +1,4 @@
-#Resume-Based Job Recommender System
+# Resume-Based Job Recommender System
 
 Overview
 This project provides an end-to-end solution for job recommendation. It consists of two main components: a Data Cleaning Pipeline that processes raw job descriptions (JDs) and a Streamlit Web Application that performs real-time matching between an uploaded resume (PDF) and the cleaned job data.
@@ -21,3 +21,9 @@ Project Structure (Implied)
   * `jd_cleaned.csv`: The clean, processed job data used by the recommender.
   * `skills_extraction.py`: A custom module used for resume skill extraction (relies on `pyresparser`).
   * `tech_JD.xlsx`: Raw input job data file.
+
+Common uv COMMANDS for This Project
+1. Create a Virtual Environment -> uv venv
+2. Sync Dependencies -> uv sync
+3. Install the Project in Editable Mode -> uv pip install --editable 
+4. Start the Streamlit web application from your terminal -> streamlit run <your_file_name>.py
